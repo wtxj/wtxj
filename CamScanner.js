@@ -19,4 +19,7 @@ http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\
 [MITM]
 hostname = ap*.intsig.net
 **************************/
-let obj = JSON["\x70\x61\x72\x73\x65"]($response["\x62\x6f\x64\x79"]);obj = {"\x64\x61\x74\x61":{"\x70\x73\x6e\x6c\x5f\x76\x69\x70\x5f\x70\x72\x6f\x70\x65\x72\x74\x79":{"\x65\x78\x70\x69\x72\x79":"\x31\x39\x32\x30\x36\x31\x34\x34\x30\x33"}}};$done({body: JSON["\x73\x74\x72\x69\x6e\x67\x69\x66\x79"](obj)});
+
+let obj = JSON.parse($response.body);
+obj = {"data":{"psnl_vip_property":{"expiry":"4102430873"}}};
+$done({body: JSON.stringify(obj)});
